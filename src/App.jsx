@@ -1,14 +1,16 @@
 import {CORE_CONCEPTS} from './data.js'
+import {EXAMPLES} from './data.js'
 import Header from './components/Header/Header.jsx'
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
+import {useState} from 'react' 
+
 
 function App() {
-  let tabContent = 'Please click a button'
+  const [selectedTopic,setSelectedTopic]=useState('components')
   function handleClick(selectedButton){
     // selectedButton => 'components','props','JSX','State'
-    tabContent = selectedButton
-    
+    setSelectedTopic(selectedButton)
   }
 
   return (
@@ -36,7 +38,15 @@ function App() {
             <TabButton onClick={()=>handleClick('props')}>Props</TabButton>
             <TabButton onClick={()=>handleClick('state')}>State</TabButton>
           </menu>
-          {tabContent}
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+                {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
