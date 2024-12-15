@@ -7,7 +7,7 @@ import {useState} from 'react'
 
 
 function App() {
-  const [selectedTopic,setSelectedTopic]=useState('components')
+  const [selectedTopic,setSelectedTopic]=useState()
   function handleClick(selectedButton){
     // selectedButton => 'components','props','JSX','State'
     setSelectedTopic(selectedButton)
@@ -38,6 +38,9 @@ function App() {
             <TabButton onClick={()=>handleClick('props')}>Props</TabButton>
             <TabButton onClick={()=>handleClick('state')}>State</TabButton>
           </menu>
+          {!selectedTopic ? 
+          (<p>Please select a Topic</p>)
+          :(        
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].description}</p>
@@ -46,7 +49,7 @@ function App() {
                 {EXAMPLES[selectedTopic].code}
               </code>
             </pre>
-          </div>
+          </div>)}
         </section>
       </main>
     </div>
