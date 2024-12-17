@@ -48,10 +48,10 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton onClick={()=>handleClick('components')}>Components</TabButton>
-            <TabButton onClick={()=>handleClick('jsx')}>JSX</TabButton>
-            <TabButton onClick={()=>handleClick('props')}>Props</TabButton>
-            <TabButton onClick={()=>handleClick('state')}>State</TabButton>
+            <TabButton isSelected={selectedTopic === 'components'} onClick={()=>handleClick('components')}>Components</TabButton>
+            <TabButton isSelected={selectedTopic === 'jsx'}  onClick={()=>handleClick('jsx')}>JSX</TabButton>
+            <TabButton isSelected={selectedTopic === 'props'} onClick={()=>handleClick('props')}>Props</TabButton>
+            <TabButton isSelected={selectedTopic === 'state'} onClick={()=>handleClick('state')}>State</TabButton>
           </menu>
           {tabContent}
         </section>
