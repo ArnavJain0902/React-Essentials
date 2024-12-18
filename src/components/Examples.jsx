@@ -27,6 +27,7 @@ export default function Examples(){
         <Section id='examples' title='Examples'>
           <h2></h2>
           <Tabs 
+            // ButtonsContainer='div'
             buttons={
               <>
                 <menu>
